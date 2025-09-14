@@ -1,0 +1,38 @@
+String adivinaLaPelicula(String emoji1, String emoji2, String emoji3) {
+     return String.format("[%s, %s, %s]", emoji1, emoji2, emoji3);
+}
+adivinaLaPelicula("❄️", "🚢", "👩‍❤️‍👨");
+String konnichiwa(String dare){
+    return String.format("こんにちは %s", dare);
+}
+konnichiwa("Hilary")
+String separador(){
+    return String.format("<<<>>>");
+}
+separador();
+ String vocales(){
+     return String.format("a e i o u");
+}
+vocales();
+String tituloAdornado(String word){
+    return String.format("<<< %s >>>", word);
+}
+tituloAdornado("Java");
+tituloAdornado(">>> <<<");
+tituloAdornado("A + B");
+adornar("Java");
+adornar("Mundo");
+
+String adornar(String frase){
+    return String.format("<=%s=>", frase);
+}
+adornar("Mundo");
+adornar("Java");
+concatenar("Hola", "Mundo");
+concatenar("A", "Z");
+
+String concatenar(String s1, String s2){
+    return String.format("[%s+%s]", s1,s2);
+}
+concatenar("Hola", "Mundo");
+concatenar("A", "Z");
