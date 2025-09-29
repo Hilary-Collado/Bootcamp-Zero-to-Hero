@@ -1,0 +1,109 @@
+double duplicar (double a){
+    var foo = a * 2;
+    return foo;
+}
+duplicar(15);
+
+
+int mod(int p, int q){
+    var d = p / q;
+    var r = d * q;
+    var m = p - r;
+    return m;
+}
+mod(3,2);
+mod(4,2);
+
+
+int diferenciaDeCuadrados(int a, int b){
+    var cuadradoDeA = a * a;
+    var cuadradoDeB = b * b;
+    var diferenciaDeCuadrados = cuadradoDeA - cuadradoDeB;
+   return diferenciaDeCuadrados;
+}
+diferenciaDeCuadrados(3, 4);
+diferenciaDeCuadrados(2, 2);
+
+
+double distancia(double x1, double y1, double x2, double y2){
+    var punto1 = Math.pow((x2 - x1), 2.0);
+    var punto2 = Math.pow((y2 - y1), 2.0);
+    var d = Math.sqrt(punto1 + punto2);
+    return d;
+}
+distancia(0.0, 0.0, 1.0, 1.0);
+distancia(0.0, 3.0, 4.0, 0.0);
+
+
+double fahrenheitACelsius(double F){
+    double C = (F - 32) * 5/9;
+    return C;
+}
+fahrenheitACelsius(60.0);
+fahrenheitACelsius(32.0);
+
+
+double gravedadSuperficial(double masa, double r){
+    double G = 6.674e-11;
+    double radio = r * r;
+    double gravedadSup = (G * masa) / radio;
+    return gravedadSup;
+}
+gravedadSuperficial(5.972e24, 6.378e6);
+gravedadSuperficial(6.421e23, 3.3972e6);
+
+
+double gravedadSuperficialDeLaTierra(){
+    double masa = 5.972e24;
+    double radio = 6.378e6;
+     return gravedadSuperficial(masa, radio);
+}
+gravedadSuperficialDeLaTierra();
+
+
+double gravedadSuperficialMarte(){
+     double masa =  6.421e23;
+     double radio = 3.3972e6;
+    return gravedadSuperficial(masa, radio);
+}
+gravedadSuperficialMarte();
+
+
+double  pesoEnMarte(double  pesoTierra){
+    double gravedadTierra = gravedadSuperficialDeLaTierra();
+    double gravedadMarte = gravedadSuperficialMarte();
+    double pesoMarte = (gravedadMarte / gravedadTierra) * pesoTierra;
+    return pesoMarte;
+}
+pesoEnMarte(80.0)
+pesoEnMarte(65.0)
+
+
+boolean esTriángulo(double num1, double num2, double num3){
+   double a = Math.max(num1, Math.max(num2, num3));
+    double suma = num1 + num2 + num3 - a;
+    return suma > a;
+}
+esTriángulo(3.0, 4.0, 5.0);
+esTriángulo(3.0, 4.0, 5.0);
+esTriángulo(17.0, 10.0, 7.0);
+
+
+double leycosenos(double a, double b, double gamma){
+    double num1 = Math.pow(a, 2) + Math.pow(b, 2);
+    double num2 = Math.cos(Math.toRadians(gamma));
+    double c = Math.sqrt(num1 - 2 * a * b * num2);
+    return c;
+}
+leycosenos(3.0, 4.0, 90.0);
+leycosenos(11.0, 11.0, 60.0);
+
+
+double promedio(double edadMenor, int edadMayor){
+    var sumaEdades = edadMenor + edadMayor;
+    var promedio = sumaEdades / 2;
+    return promedio;
+}
+promedio(11, 16);
+promedio(2, 3);
+
