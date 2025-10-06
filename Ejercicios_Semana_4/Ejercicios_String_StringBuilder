@@ -1,0 +1,132 @@
+boolean empiezaConMinuscula(String s){
+    char primerCaracter = s.charAt(0);
+    return Character.isLowerCase(primerCaracter);
+}
+empiezaConMinuscula("manzana");
+empiezaConMinuscula("Manzana");
+
+
+String pluralizar(int conteo, String s){
+    return (conteo < 2) ? s : s.format("%d %s", conteo, s);
+}
+pluralizar(2, "código");
+pluralizar(1, "código");
+pluralizar(3, "código");
+
+
+boolean esVocal(char letra){
+  var letraMinuscula = Character.toLowerCase(letra);
+    return "aeiou".contains(Character.toString(letraMinuscula));
+}
+esVocal('a');
+esVocal('A');
+esVocal('c');
+esVocal('@');
+
+
+String titleCase(String texto){
+    var primeraLetra = texto.substring(0, 1);
+    var restoDelTexto = texto.substring(1);
+    return String.format("%S%s", primeraLetra, restoDelTexto.toLowerCase());
+}
+titleCase("java");
+titleCase("Java");
+titleCase("JAVA");
+
+
+boolean terminaEnS(String texto) {
+    var ultimoCaracter = texto.charAt(texto.length() - 1);
+    return (ultimoCaracter == 's') || (ultimoCaracter == 'S');
+}
+terminaEnS("miercoles");
+terminaEnS("jueves");
+terminaEnS("sabado");
+
+
+boolean esPalindrome(String texto){
+    var textoOriginal = texto.toLowerCase();
+    var t =  new StringBuilder(textoOriginal);
+    t.reverse();
+    return t.toString().equals(textoOriginal);
+}
+esPalindrome("ab");
+esPalindrome("ee");
+esPalindrome("Aa");
+
+
+boolean  esExterno(String text){
+    var url = text.toLowerCase();
+    var sb = new StringBuilder(url);
+    var enlace = sb.toString();
+    return enlace.indexOf("http") == 0;
+}
+esExterno("/definetely-internal")
+esExterno("https://www.java.com")
+esExterno("http://dont-go.com")
+
+
+String extension(String ruta){
+    int p = ruta.lastIndexOf('.');
+    int b = ruta.lastIndexOf('/');
+    return (p > b) ? ruta.substring(p + 1) : "";
+}
+extension("debug.sh")
+extension("/path/to/debug.sh")
+extension("/the.dot/file.java")
+extension("no-extension")
+
+
+String domain(String url){
+    int a = "https://".length();
+    int b = url.indexOf('/', a);
+    return (b == -1) ? url.substring(a) : url.substring(a, b);
+}
+domain("https://www.java.com/en/")
+domain("https://jcp.org")
+
+
+String domingoDePascua(int año){
+    var a = año % 19;
+    var b = año / 100;
+    var c = año % 100;
+    var d = b / 4;
+    var e = b % 4;
+    var g = ((8 * b) + 13) / 25;
+    var h = ((19 * a) + b- d- g + 15) % 30;
+    var i = c / 4;
+    var k = c % 4;
+    var l = (32 + (2 * e) + (2 * i)- h- k) % 7;
+    var m = (a + (11 * h) + (19 * l)) / 433;
+    var n = (h + l- (7 * m) + 90) / 25;
+    var p = (h + l- (7 * m) + (33 * n) + 19) % 32;
+    return String.format("%d/%d/%d", año, n, p);
+}
+domingoDePascua(2024)
+domingoDePascua(2025)
+domingoDePascua(1961)
+
+
+String hexString(int a, int b, int c){
+    return String.format("%02X%02X%02X", a, b, c);
+}
+hexString(0, 0, 0);
+hexString(255, 255, 255)
+hexString(12, 15, 77)
+
+
+boolean correoElectronicoValido(String s){
+    int at = s.indexOf('@');
+    int lastAt = s.lastIndexOf('@');
+    int dot = s.indexOf('.', at + 1);
+    int lastDot = s.lastIndexOf('.');
+    
+    return at > 0 && at == lastAt && dot > at + 1 && dot == lastDot && dot < s.length() - 1;
+}
+correoElectronicoValido("abc@me.com")
+correoElectronicoValido("abc@me.")
+correoElectronicoValido("abc@mecom")
+correoElectronicoValido("abc@me@com")
+correoElectronicoValido("@me.com")
+correoElectronicoValido("a.bc@me.com")
+correoElectronicoValido("abc@me.co.m")
+correoElectronicoValido("a@c@me.com")
